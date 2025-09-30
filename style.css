@@ -1,0 +1,197 @@
+/* --- RESET BÁSICO E FONTES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* NOVO: Faz o corpo da página ocupar 100% da altura da viewport (tela) */
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha o conteúdo ao topo (ou 'center' se preferir centralizado verticalmente) */
+    min-height: 100vh; /* Ocupa 100% da altura da tela */
+    width: 100%; /* Ocupa 100% da largura */
+    padding: 20px 0; /* Mantém um pequeno espaçamento vertical */
+}
+
+.container {
+    /* Mantenho uma largura máxima para o conteúdo não ficar muito esticado em monitores grandes */
+    width: 95%; 
+    max-width: 1200px; /* Aumentei o limite máximo de largura */
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    /* NOVO: Garante que o contêiner estique se necessário */
+    flex-grow: 1; 
+}
+
+/* --- CABEÇALHO/NAVEGAÇÃO --- */
+.main-header {
+    background-color: #8B7500; /* Cor Marrom/Dourado */
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end; /* Alinha os itens à direita */
+}
+
+.main-header nav {
+    display: flex;
+    gap: 15px;
+    padding-right: 20px;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.nav-item.active {
+    background-color: #32CD32; /* Cor Verde (Para o botão de compra em destaque) */
+    border-radius: 3px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* --- SEÇÃO PRINCIPAL (FUNDO AMARELO) --- */
+.main-content {
+    background-color: #FFFF00; /* Cor Amarelo de Destaque */
+    padding-bottom: 20px;
+}
+
+.highlight-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px 30px; /* Aumentei o padding para dar mais espaço */
+    flex-wrap: wrap; 
+}
+
+.product-image {
+    max-width: 45%;
+    height: auto;
+}
+
+.call-to-action {
+    text-align: center;
+    max-width: 50%;
+    min-width: 300px; /* Aumentei o mínimo para o texto */
+    margin-top: 20px; 
+}
+
+.final-countdown {
+    color: red;
+    font-size: 3em; /* Aumentei o tamanho */
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0 #000;
+}
+
+.hourglass {
+    font-size: 1.2em;
+}
+
+.product-info {
+    font-size: 2em; /* Aumentei o tamanho */
+    font-weight: bold;
+    color: black;
+    margin: 15px 0;
+}
+
+.buy-button {
+    background-color: #32CD32; /* Cor Verde */
+    color: white;
+    font-size: 3em; /* Aumentei o tamanho */
+    font-weight: 900;
+    padding: 20px 50px; /* Aumentei o padding */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(50, 205, 50, 0.8), 0 5px 0 #1E823C; 
+    transition: all 0.2s;
+}
+
+.buy-button:hover {
+    background-color: #4CAF50;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(50, 205, 50, 1), 0 7px 0 #1E823C;
+}
+
+/* --- GRID DE NÚMEROS --- */
+.numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    width: 95%;
+    max-width: 1150px; /* Ajustado para o novo max-width do container */
+    margin: 20px auto;
+    border: 1px solid #8B7500; 
+}
+
+.number-cell {
+    background-color: #FFFF00;
+    border: 1px solid #8B7500;
+    text-align: center;
+    padding: 15px 0; /* Aumentei o padding para células maiores */
+    font-weight: bold;
+    font-size: 1.2em; /* Aumentei a fonte */
+    cursor: pointer;
+    user-select: none;
+    color: black;
+}
+
+.number-cell.taken {
+    background-color: #D3D3D3; 
+    color: #444;
+    cursor: default;
+}
+
+.number-cell.selected {
+    background-color: #32CD32;
+    color: white;
+}
+
+/* --- RESPONSIVIDADE (Para telas menores/celulares) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px 0;
+    }
+    
+    .highlight-area {
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+
+    .product-image {
+        max-width: 70%;
+    }
+
+    .call-to-action {
+        min-width: 100%;
+    }
+
+    .final-countdown {
+        font-size: 2.2em;
+    }
+
+    .product-info {
+        font-size: 1.6em;
+    }
+
+    .buy-button {
+        font-size: 2em;
+        padding: 15px 40px;
+    }
+
+    /* Reduz o grid para 5 colunas em dispositivos móveis */
+    .numbers-grid {
+        grid-template-columns: repeat(5, 1fr); 
+    }
+    
+    .number-cell {
+        padding: 12px 0;
+        font-size: 1em;
+    }
+}
